@@ -1,0 +1,24 @@
+# tango_with_django/locale/en/LC_MESSAGES/django.po
+
+
+#: templates/rango/index.html:13
+msgid "Bem Vindo ao Rango!"
+msgstr "Welcome to Rango!"
+
+#: templates/rango/index.html:13
+msgid "Bem Vindo ao Rango"
+msgstr "Welcome to Rango"
+
+#: templates/rango/index.html:29
+msgid "Top 5 mais visitadas"
+msgstr "Top 5 most viewed"
+
+#: templates/rango/index.html:37
+msgid "Nenhuma categoria foi encontrada"
+msgstr "No category was found"
+
+
+
+
+
+

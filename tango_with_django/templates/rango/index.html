@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load i18n %}
+<html>
+
+    <head>
+        <title>Rango</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <h1>{% trans 'Bem Vindo ao Rango' %}!</h1>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Rango!</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li> <a href="/rango/about/">About</a></li>
+                    <li><a href="/rango/add_category/">Add categoria</a></li>
+                </ul>
+            </div>
+        </nav>
+                <div class="container">
+
+                {% if categories %}
+                    <h3> {% trans 'Top 5 mais visitadas' %}: </h3>
+                    <ul>
+                        {% for category in categories %}
+                            <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</li>
+
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <h4>{% trans 'Nenhuma categoria foi encontrada' %}.</h4>
+                {% endif %}
+            </div>
+    </body>
+
+</html>

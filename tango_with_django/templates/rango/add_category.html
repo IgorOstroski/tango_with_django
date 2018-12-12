@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rango</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+    <h1>Adicionar Categoria</h1>
+        <nav class="navbar navbar-inverse">
+            <div class="container-solid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Rango!</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/rango/">Home</a></li>
+                    <li> <a href="/rango/about/">About</a></li>
+                    <li><a href="/rango/add_category/">Add categoria</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+        <form id="category_form" method="post" action="/rango/add_category/">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+
+            {% for field in form.visible_fields %}
+                {{field.errors}}
+                {{field.help_text}}
+                <div class="field-box">{{field}}</div> <br>
+            {% endfor %}
+            <br>
+            <input type="submit" name = "submit" value="Cadastrar">
+        </form>
+        </div>
+    </body>
+</html>

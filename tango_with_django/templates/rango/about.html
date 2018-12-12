@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+
+    <head>
+        <title>Rango</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+
+    <body>
+        <h1>About</h1>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Rango!</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/rango/">Home</a></li>
+                    <li class="active"> <a href="/rango/about/">About</a></li>
+                    <li><a href="/rango/add_category/">Add categoria</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container-fluid"></div>
+        <h3>Sobre nossa página...</h3>
+        <p>{{text}}</p><br />
+        </div>
+    </body>
+
+</html>

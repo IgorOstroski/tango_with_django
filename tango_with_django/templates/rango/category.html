@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Rango</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+    <h1>Categoria</h1>
+     <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Rango!</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/rango/">Home</a></li>
+                    <li> <a href="/rango/about/">About</a></li>
+                    <li><a href="/rango/add_category/">Add categoria</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            {% if category %}
+            <h1>{{ category_name }}</h1>
+                {% if pages %}
+                <ul>
+                    {% for page in pages %}
+                    <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+                    {% endfor %}
+                </ul></br>
+
+
+                {% else %}
+                     <strong>Nenhuma pagina nesta categoria, por enquanto.</strong>
+                {% endif %}
+
+                {% if category_comments != '' %}
+                     <h4> Sobre a categoria {{category_name}}...</h4>
+                     <p> {{category_comments}} </p>
+                {% endif %}
+
+                {% else %}
+                     A categoria {{ category_name }} nao existe.
+            {% endif %}
+        </div>
+
+    </body>
+</html>

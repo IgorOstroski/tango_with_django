@@ -1,0 +1,5 @@
+from django.shortcuts import render
+
+def about(request):
+    context_dic = {'text': "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sodales sollicitudin lacus vitae hendrerit. Nulla elit eros, posuere sit amet iaculis in, iaculis id nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dolor sapien, facilisis nec enim sit amet, laoreet sollicitudin nisl. Suspendisse at sagittis libero, sit amet egestas ipsum. Vestibulum posuere lobortis suscipit. Etiam nisl mauris, feugiat ac tortor ac, suscipit semper orci. Mauris sodales mi vitae lacinia pretium. Vivamus fermentum non quam vitae commodo. In sed mauris accumsan, efficitur ante quis, interdum lacus. Vestibulum iaculis dapibus diam eu ultricies. Ut nibh nisl, dignissim mattis faucibus a, lobortis ut velit. Sed eu enim sapien. Duis odio metus, ullamcorper sit amet pellentesque at, tempus ut erat. Nulla quis risus nec risus mattis ultricies. Integer ut venenatis purus...."}
+    return render(request,'rango/about.html',context_dic)
