@@ -5,6 +5,8 @@ from .views.category import category
 from .views.outra_view import outra_view
 from .views.add_category import add_category
 from .views.add_page import add_page
+from .views.register import register
+from .views.login import login
 
 urlpatterns = patterns('',
         url(r'^$', index, name='index'),
@@ -12,5 +14,7 @@ urlpatterns = patterns('',
         url(r'outra_view/',outra_view, name = 'outra_view'),
         url(r'add_category/',add_category, name ='add_category'),
         url(r'add_page/',add_page, name ='add_page'),
-        url(r'^category/(?P<category_name_url>[\w\-]+)/$',category, name = 'category')
+        url(r'^category/(?P<category_name_url>[\w\-]+)/$',category, name = 'category'),
+        url(r'^register/', register, name = 'register'),
+        url(r'^login/', login, name = 'login'),
         )
