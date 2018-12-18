@@ -6,7 +6,8 @@ from .views.outra_view import outra_view
 from .views.add_category import add_category
 from .views.add_page import add_page
 from .views.register import register
-from .views.login import login
+from .views.login import user_login
+from .views.logout import user_logout
 
 urlpatterns = patterns('',
         url(r'^$', index, name='index'),
@@ -16,5 +17,6 @@ urlpatterns = patterns('',
         url(r'add_page/',add_page, name ='add_page'),
         url(r'^category/(?P<category_name_url>[\w\-]+)/$',category, name = 'category'),
         url(r'^register/', register, name = 'register'),
-        url(r'^login/', login, name = 'login'),
+        url(r'^login/', user_login, name = 'login'),
+        url(r'^logout/', user_logout, name ='logout')
         )

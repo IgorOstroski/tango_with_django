@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
 
+
 def user_login(request):
 
     # If the request is a HTTP POST, try to pull out the relevant information.
