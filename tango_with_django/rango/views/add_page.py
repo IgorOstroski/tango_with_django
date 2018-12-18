@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from ..forms.page import PageForm
+from ..forms.page_form import PageForm
 from ..views.index import index
+
 def add_page(request):
     if request.method == 'POST':
         form = PageForm(request.POST)

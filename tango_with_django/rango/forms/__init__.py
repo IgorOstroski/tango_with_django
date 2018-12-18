@@ -1,2 +1,2 @@
-from .category import *
-from .page import *
+from .category_form import *
+from .page_form import *
