@@ -7,21 +7,24 @@
         <title>Rango</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     </head>
 
     <body>
-        {% if user.is_authenticated %}
-            <h1>Olá, {{ user.username }}!</h1>
-        {% else %}
-            <h1>Bem vindo ao Rango!</h1>
-        {% endif %}
+        {% block titulo %}
+            {% if user.is_authenticated %}
+                 <h1>Olá, {{ user.username }}!</h1>
+            {% else %}
+                 <h1>Bem vindo ao Rango!</h1>
+            {% endif %}
+        {% endblock %}
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Rango!</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="/rango/">Home</a></li>
                     <li> <a href="/rango/about/">About</a></li>
                     {% if user.is_authenticated %}
                         <li><a href="/rango/add_category/">Add categoria</a></li>

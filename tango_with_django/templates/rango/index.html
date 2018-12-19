@@ -1,52 +1,23 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 {% load staticfiles %}
-{% load i18n %}
-<html>
 
-    <head>
-        <title>Rango</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-    </head>
+        {% block titulo %}
+            {% if user.is_authenticated %}
+                <h1>Olá, {{ user.username }}!</h1>
+            {% else %}
+                <h1>Bem vindo ao Rango!</h1>
+            {% endif %}
+        {% endblock %}
 
-    <body>
-        {% if user.is_authenticated %}
-            <h1>Olá, {{ user.username }}!</h1>
-        {% else %}
-            <h1>Bem vindo ao Rango!</h1>
-        {% endif %}
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Rango!</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li> <a href="/rango/about/">About</a></li>
-                    {% if user.is_authenticated %}
-                        <li><a href="/rango/add_category/">Add categoria</a></li>
-                        <li><a href="/rango/add_page/">Add página</a></li>
-                        <li><a href="/rango/logout/">Logout</a></li>
+        {% block container %}
+                    {% if categories %}
+                        <h3> Top 5 mais visitadas: </h3>
+                        <ul>
+                            {% for category in categories %}
+                                <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</li>
+                            {% endfor %}
+                        </ul>
                     {% else %}
-                        <li><a href="/rango/login/">Login</a></li>
-                        <li><a href="/rango/register/">Registrar-se</a></li>
+                        <h4>Nenhuma categoria foi encontrada.</h4>
                     {% endif %}
-                </ul>
-            </div>
-        </nav>
-                <div class="container">
-
-                {% if categories %}
-                    <h3> {% trans 'Top 5 mais visitadas' %}: </h3>
-                    <ul>
-                        {% for category in categories %}
-                            <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</li>
-
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <h4>{% trans 'Nenhuma categoria foi encontrada' %}.</h4>
-                {% endif %}
-            </div>
-    </body>
-</html>
+        {% endblock %}
